@@ -1,10 +1,10 @@
 $("#pls-no").click(function () {
-	document.getElementById("pls-no-embed").innerHTML="<embed src='pls_no.mp3' autostart=true loop=false volume=100 hidden=true>";
+	document.getElementById("pls-no-mp3").play();
    	return true;
 });
 
 $("#fuck-you").click(function () {
-	document.getElementById("fuck-you-embed").innerHTML="<embed src='fuck_you.mp3' autostart=true loop=false volume=100 hidden=true>";
+	document.getElementById("fuck-you-mp3").play();
    	return true;
 });
 
