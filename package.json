@@ -4,15 +4,13 @@
   "description": "TILT",
   "main": "index.js",
   "scripts": {
-    "test": "app"
+    "start": "node app.js"
   },
   "author": "Albert Wang",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "ejs": "^2.4.2",
     "express": "^4.13.4"
-  },
-  "scripts": {
-    "start": "node app.js"
   }
 }
