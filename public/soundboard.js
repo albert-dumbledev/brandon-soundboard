@@ -1,4 +1,5 @@
 var sickBeat = document.getElementById("sick-beat-mp3");
+var isStarted = false;
 
 function playSound(id) {
 	document.getElementById(id + "-mp3").play();
@@ -11,23 +12,27 @@ $(".sound-bite-btn").click(function (e) {
 
 // MIX SUM FKEN SICK ASS BEATS YO
 $(".start-sick-jam").click(function (e) {
-	sickBeat.play();
-	$(".sound-bite").each(function (index) {
-		// MUSICAL GENIUS
-		var randomInterval = Math.floor(Math.random() * (36 - 12)) + 12;
-		var that = this;
+	if (!isStarted) {
+		isStarted = true;
+		sickBeat.play();
+		$(".sound-bite").each(function (index) {
+			// MUSICAL GENIUS
+			var randomInterval = Math.floor(Math.random() * (36 - 12)) + 12;
+			var that = this;
 
-		setTimeout(function () {
-			setInterval(function () {
-				if ($(that).attr("id") !== "fuck-you-mp3") {
-					that.play();	
-				}
-			}, randomInterval*1000);	
-		}, index*1000);
-	});
+			setTimeout(function () {
+				setInterval(function () {
+					if ($(that).attr("id") !== "fuck-you-mp3") {
+						that.play();
+					}
+				}, randomInterval*1000);
+			}, index*1000);
+		});
+	}
 });
 
 $(".stop-sick-jam").click(function (e) {
+	isStarted = false;
 	sickBeat.pause();
 	sickBeat.currentTime = 0;
 	//Lazy hack
