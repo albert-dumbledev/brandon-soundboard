@@ -14,6 +14,7 @@ $(".sound-bite-btn").click(function (e) {
 $(".start-sick-jam").click(function (e) {
 	if (!isStarted) {
 		isStarted = true;
+		sickBeat.volume = 0.75;
 		sickBeat.play();
 		$(".sound-bite").each(function (index) {
 			// MUSICAL GENIUS

@@ -1,117 +1,115 @@
 <html>
-	<head>
-		<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous">
-		</script>
+    <head>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous">
+        </script>
 
-		<style type="text/css">
-			button {
-				height: 100px;
-				width: 100px;
-				font-family: helvetica;
-				font-size: 15px;
-				padding: 10;
-			}
+        <style type="text/css">
+            button {
+                height: 100px;
+                width: 100px;
+                font-family: helvetica;
+                font-size: 15px;
+                padding: 10;
+            }
 
-			body {
-				font-family: helvetica;
-				font-size: 15px;
-			}
+            body {
+                font-family: helvetica;
+                font-size: 15px;
+            }
 
-			.section {
-				padding-left: 200px;
-			}
+            .section {
+                padding-left: 200px;
+            }
 
-			.header {
-				padding-left: 400px;
-			}
+            .header {
+                padding-left: 400px;
+            }
 
-			.inline {
-				float: left;
-			}
+            .inline {
+                float: left;
+            }
 
-			.start-sick-jam {
-				background-color: #007A00;
-				border: 0;
-			}
+            .start-sick-jam {
+                background-color: #007A00;
+                border: 0;
+            }
 
-			.stop-sick-jam {
-				background-color: #F9152F;
-				border: 0;
-			}
+            .stop-sick-jam {
+                background-color: #F9152F;
+                border: 0;
+            }
 
-			.stop {
-				float: right;
-				padding-right: 100px;
-			}
-		</style>
-	</head>
-	<body>
-		<h1 class="header">EPIC SOUNDBOARD</h1>
-		<div class="section" style="float: left;">
-			<img src="brandon.jpeg" class="section-header" style="width: 300px;"></img>
-			<div>
-				<% for (var i = 0; i<3; i++) { %>
-					<div>
-					<% brandon.forEach(function (sound, index) { %>
-						<% console.log(i*3); console.log(index); console.log((i*3)+3); %>
-						<% if (i*3 <= index && index < (i*3)+3) { %>
-							<% console.log("Generated"); %>
-							<% var soundId = sound.replace(/_/g, "-"); %>
-		    				<% soundId = soundId.replace(/\./g, "-"); %>
-		    				<% var soundName = sound.replace(/_/g, " "); %>
-							<div class="inline">
-								<button class="sound-bite-btn" type="button" id="<%= soundId.slice(0, -4); %>"><%= soundName.slice(0, -4); %></button>
-							</div>
-						<% } %>
-					<% }) %>
-					</div>
-				<% } %>
-		    </div>
-	    </div>
+            .stop {
+                float: right;
+                padding-right: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="header">EPIC SOUNDBOARD</h1>
+        <div class="section" style="float: left;">
+            <img src="dj.png" class="section-header"></img>
+            <div class="inline">
+                <button class="start-sick-jam" type="button">Start</button>
+            </div>
+            <div class="stop">
+                <button class="stop-sick-jam" type="button">Stop</button>
+            </div>
+        </div>
 
-	    <div class="section" style="float: left;">
-	    	<img src="lui_beb.jpeg" class="section-header" style="width: 300px;"></img>
-	    	<div>
-				<% for (var i = 0; i<3; i++) { %>
-					<div>
-					<% lui.forEach(function (sound, index) { %>
-						<% console.log(i*3); console.log(index); console.log((i*3)+3); %>
-						<% if (i*3 <= index && index < (i*3)+3) { %>
-							<% console.log("Generated"); %>
-							<% var soundId = sound.replace(/_/g, "-"); %>
-		    				<% soundId = soundId.replace(/\./g, "-"); %>
-		    				<% var soundName = sound.replace(/_/g, " "); %>
-							<div class="inline">
-								<button class="sound-bite-btn" type="button" id="<%= soundId.slice(0, -4); %>"><%= soundName.slice(0, -4); %></button>
-							</div>
-						<% } %>
-					<% }) %>
-					</div>
-				<% } %>
-		    </div>
-	    </div>
+        <div class="section" style="float: left;">
+            <img src="brandon.jpeg" class="section-header" style="width: 300px;"></img>
+            <div>
+                <% for (var i = 0; i<3; i++) { %>
+                    <div>
+                    <% brandon.forEach(function (sound, index) { %>
+                        <% if (i*3 <= index && index < (i*3)+3) { %>
+                            <% var soundId = sound.replace(/_/g, "-"); %>
+                            <% soundId = soundId.replace(/\./g, "-"); %>
+                            <% var soundName = sound.replace(/_/g, " "); %>
+                            <div class="inline">
+                                <button class="sound-bite-btn" type="button" id="<%= soundId.slice(0, -4); %>"><%= soundName.slice(0, -4); %></button>
+                            </div>
+                        <% } %>
+                    <% }) %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
 
-	    <div class="section" style="float: left;">
-	    	<img src="dj.png" class="section-header"></img>
-	    	<div class="inline">
-		    	<button class="start-sick-jam" type="button">Start</button>
-	    	</div>
-	    	<div class="stop">
-		    	<button class="stop-sick-jam" type="button">Stop</button>
-	    	</div>
-	    </div>
-    	<% brandon.forEach(function (sound) { %>
-    		<% var soundId = sound.replace(/_/g, "-"); %>
-    		<% soundId = soundId.replace(/\./g, "-"); %>
-    		<audio class="sound-bite" id="<%= soundId %>" src="brandon/<%= sound %>"></audio>
-    	<% }) %>
+        <div class="section" style="float: left;">
+            <img src="lui_beb.jpeg" class="section-header" style="width: 300px;"></img>
+            <div>
+                <% for (var i = 0; i<3; i++) { %>
+                    <div>
+                    <% lui.forEach(function (sound, index) { %>
+                        <% if (i*3 <= index && index < (i*3)+3) { %>
+                            <% var soundId = sound.replace(/_/g, "-"); %>
+                            <% soundId = soundId.replace(/\./g, "-"); %>
+                            <% var soundName = sound.replace(/_/g, " "); %>
+                            <div class="inline">
+                                <button class="sound-bite-btn" type="button" id="<%= soundId.slice(0, -4); %>"><%= soundName.slice(0, -4); %></button>
+                            </div>
+                        <% } %>
+                    <% }) %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
 
-    	<% lui.forEach(function (sound) { %>
-    		<% var soundId = sound.replace(/_/g, "-"); %>
-    		<% soundId = soundId.replace(/\./g, "-"); %>
-    		<audio class="sound-bite" id="<%= soundId %>" src="lui/<%= sound %>"></audio>
-    	<% }) %>
-    	<audio id="sick-beat-mp3" src="sick_beat.mp3"></audio>
-	    <script src="soundboard.js"></script>
-	</body>
+        <!-- Audio files -->
+        <% brandon.forEach(function (sound) { %>
+            <% var soundId = sound.replace(/_/g, "-"); %>
+            <% soundId = soundId.replace(/\./g, "-"); %>
+            <audio class="sound-bite" id="<%= soundId %>" src="brandon/<%= sound %>"></audio>
+        <% }) %>
+
+        <% lui.forEach(function (sound) { %>
+            <% var soundId = sound.replace(/_/g, "-"); %>
+            <% soundId = soundId.replace(/\./g, "-"); %>
+            <audio class="sound-bite" id="<%= soundId %>" src="lui/<%= sound %>"></audio>
+        <% }) %>
+        <audio id="sick-beat-mp3" src="sick_beat.mp3"></audio>
+        <script src="soundboard.js"></script>
+    </body>
 </html>
